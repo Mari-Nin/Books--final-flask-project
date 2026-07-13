@@ -1,0 +1,111 @@
+{% from "macros.html" import render_book with context %}
+{% extends "base.html" %}
+
+{% block main %}
+<main style="background-color: azure;" class="py-4">
+    <div class="container-fluid">
+        <div class="row g-4">
+            
+            <div class="col-md-3 mb-4">
+                <div class="p-3 rounded shadow-sm border h-100" style="background-color: #e0f2fe;">
+                    <h6 class="border-bottom pb-2 mb-3 text-dark fw-bold px-1" style="font-family: 'Segoe UI', sans-serif;">💬 ჩვენ გთავაზობთ: </h6>
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item px-2 bg-transparent border-0 pb-3 text-break">
+                            <div class="text-dark lh-lg" style="font-family: 'Segoe UI', sans-serif; font-size: 0.88rem;">
+                                <div class="mb-2"><span class="me-2">👤</span>
+                                        <a href="/register" class="fw-semibold text-secondary text-decoration-none">
+                                        დარეგისტრირდით
+                                    </a>
+                                </div>
+                                                                <div class="mb-2"><span class="me-2">📸</span>ატვირთეთ <span class="fw-semibold text-secondary">წიგნის სურათი</span></div>
+                                <div class="mb-3"><span class="me-2">✨</span>ისარგებლეთ სასურველი <span class="fw-semibold text-secondary">მომსახურებით:</span></div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-1 bg-transparent border-0 py-2 ps-3"><span class="d-block lh-sm" style="font-size: 0.85rem; font-family: 'Segoe UI', sans-serif;"><span class="me-2 text-success">🛒</span> <span class="text-secondary fw-medium">წიგნის შეძენა</span></span></li>
+                        <li class="list-group-item px-1 bg-transparent border-0 py-2 ps-3"><span class="d-block lh-sm" style="font-size: 0.85rem; font-family: 'Segoe UI', sans-serif;"><span class="me-2 text-success">🛒</span> <span class="text-secondary fw-medium">წიგნის გაყიდვა</span></span></li>
+                        <li class="list-group-item px-1 bg-transparent border-0 py-2 ps-3"><span class="d-block lh-sm" style="font-size: 0.85rem; font-family: 'Segoe UI', sans-serif;"><span class="me-2 text-warning">🔄</span> <span class="text-secondary fw-medium">წიგნის გაცვლა</span></span></li>
+                        <li class="list-group-item px-1 bg-transparent border-0 py-2 ps-3"><span class="d-block lh-sm" style="font-size: 0.85rem; font-family: 'Segoe UI', sans-serif;"><span class="me-2 text-danger">🎁</span> <span class="text-secondary fw-medium">წიგნის ჩუქება</span></span></li>
+                        <li class="list-group-item px-1 bg-transparent border-0 py-2 ps-3"><span class="d-block lh-sm" style="font-size: 0.85rem; font-family: 'Segoe UI', sans-serif;"><span class="me-2 text-danger">🎁</span> <span class="text-secondary fw-medium">წიგნის გაჩუქება</span></span></li>
+                        <li class="list-group-item px-1 bg-transparent border-0 py-2 ps-3"><span class="d-block lh-sm" style="font-size: 0.85rem; font-family: 'Segoe UI', sans-serif;"><span class="me-2 text-info">❤️</span> <span class="text-secondary fw-medium">ქველმოქმედება</span></span></li>
+                        <li class="list-group-item px-1 bg-transparent border-0 py-2 ps-3"><span class="d-block lh-sm" style="font-size: 0.85rem; font-family: 'Segoe UI', sans-serif;"><span class="me-2 text-info">❤️</span> <span class="text-secondary fw-medium">აღარ არის ხელმისაწვდომი</span></span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-9 mb-4">      
+                <div class="row g-3 justify-content-start">
+                   
+                    <div class="col-md-4">
+            <div class="p-3 bg-info-subtle rounded shadow-sm border text-center h-100 d-flex align-items-center justify-content-center overflow-hidden">
+                
+               <a href="{{ url_for('boo.book_by_category') }}?category=buy">
+                     <p style="color: green;">წიგნის შეძენა</p>
+                   <img src="{{ url_for('static', filename='uploads/buy.jpg') }}" class="img-fluid rounded w-100" 
+                                 style="height: 200px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease;"
+                                 onmouseover="this.style.transform='scale(1.06)'; this.style.filter='brightness(90%)';" 
+                                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none';">
+                                 </a>  
+            </div>
+        </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-info-subtle rounded shadow-sm border text-center h-100 d-flex align-items-center justify-content-center overflow-hidden">
+                            <a href="{{ url_for('boo.book_by_category') }}?category=sell">
+                                <p style="color: green;">წიგნის გაყიდვა</p>
+                            <img src="{{ url_for('static', filename='uploads/sell.jpg') }}" class="img-fluid rounded w-100" 
+                                 style="height: 200px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease;"
+                                 onmouseover="this.style.transform='scale(1.06)'; this.style.filter='brightness(90%)';" 
+                                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none';">
+                                 </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-info-subtle rounded shadow-sm border text-center h-100 d-flex align-items-center justify-content-center overflow-hidden">
+                            <a href="{{ url_for('boo.book_by_category') }}?category=exchange">
+                                <p style="color: green;">წიგნის გაცვლა</p>
+                            <img src="{{ url_for('static', filename='uploads/exchange.jpg') }}" class="img-fluid rounded w-100" 
+                                 style="height: 200px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease;"
+                                 onmouseover="this.style.transform='scale(1.06)'; this.style.filter='brightness(90%)';" 
+                                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none';">
+                                 </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-white rounded shadow-sm border text-center h-100 d-flex align-items-center justify-content-center overflow-hidden">
+                            <a href="{{ url_for('boo.book_by_category') }}?category=gifting">
+                                <p style="color: green;">წიგნის ჩუქება</p>
+                            <img src="{{ url_for('static', filename='uploads/gifting.jpg') }}" class="img-fluid rounded w-100" 
+                                 style="height: 200px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease;"
+                                 onmouseover="this.style.transform='scale(1.06)'; this.style.filter='brightness(90%)';" 
+                                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none';">
+                        </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-white rounded shadow-sm border text-center h-100 d-flex align-items-center justify-content-center overflow-hidden">
+                            <a href="{{ url_for('boo.book_by_category') }}?category=giveaway">
+                                <p style="color: green;">წიგნის გაჩუქება</p>
+                            <img src="{{ url_for('static', filename='uploads/giveaway.jpg') }}" class="img-fluid rounded w-100" 
+                                 style="height: 200px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease;"
+                                 onmouseover="this.style.transform='scale(1.06)'; this.style.filter='brightness(90%)';" 
+                                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none';">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-white rounded shadow-sm border text-center h-100 d-flex align-items-center justify-content-center overflow-hidden">
+                            <a href="{{ url_for('boo.book_by_category') }}?category=donation">
+                                <p style="color: green;"> ქველმოქმედება</p>
+                            <img src="{{ url_for('static', filename='uploads/donation.jpg') }}" class="img-fluid rounded w-100" 
+                                 style="height: 200px; object-fit: cover; cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease;"
+                                 onmouseover="this.style.transform='scale(1.06)'; this.style.filter='brightness(90%)';" 
+                                 onmouseout="this.style.transform='scale(1)'; this.style.filter='none';">
+                        </a>
+                        </div>
+                    </div>
+                </div> </div> </div> </div> </main>
+{% endblock %}

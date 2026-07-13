@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<p>ცვლილება არ არის შეტანილი,</p>
+<p>დავტოვოთ განახლების გარეშე?</p>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <input type="hidden" name="confirm" value="არა">
+
+    <button type="submit">განვაგრძოთ განახლება
+
+    </button>
+     <input type="hidden" name="confirm" value="დიახ">
+
+    <button type="submit">უკან დაბრუნება
+         
+
+    </button>
+</form>
+
+{% endblock %}
+
+

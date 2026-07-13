@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block main %}
+
+<main class="container my-5">
+  <div class="card shadow border-0 p-4 bg-light">
+    <div class="row g-4 align-items-center">
+
+      <div class="col-md-6 text-center">
+        <img src="/static/uploads/{{ book.img }}" class="img-fluid rounded"> 
+      </div> <div class="col-md-6">
+        <div class="card-body p-0"> 
+          <h5 class="card-title h2 fw-bold mb-4">{{ book.title }}</h5>
+
+          <h6 class="text-muted mb-3 fw-bold">წიგნის მახასიათებლები:</h6>
+          <ul class="list-unstyled d-flex flex-wrap gap-2">
+            <li class="p-2 bg-light border rounded small">წიგნის ლოკაცია: {{ book.location }}</li>
+            <li class="p-2 bg-light border rounded small">წიგნის სახელწოდება: {{ book.title }}</li>
+            <li class="p-2 bg-light border rounded small">წიგნის რაოდენობა: {{ book.quantity }}</li>
+            <li class="p-2 bg-light border rounded small">სტატუსი: {{ book.status }}</li>
+            <li class="p-2 bg-light border rounded small">კატეგორია: {{ book.category }}</li>
+            <li class="p-2 bg-light border rounded small">ატვირთულია: {{ book.action_time.strftime('%Y-%m-%d %H:%M') }}</li>
+            <li class="p-2 bg-light border rounded small">
+    <!-- ატვირთულია: 
+    {% if book.action_time %}
+        {{ book.action_time.strftime('%Y-%m-%d %H:%M') }}
+    {% else %}
+        დრო არ არის მითითებული
+    {% endif %}
+</li> -->
+        
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

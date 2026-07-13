@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block main %}
+
+<div class="container my-5">
+
+  <h2>წიგნის გაცვლა</h2>
+
+  <form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+      <label>გაცვლა წიგნში</label>
+      {{ form.exchange_with(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+      <label>რაოდენობა</label>
+      {{ form.quantity(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+      <label>სტატუსი</label>
+      {{ form.status(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+      <label>ლოკაცია</label>
+      {{ form.location(class="form-control") }}
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">
+      შენახვა
+    </button>
+
+  </form>
+
+</div>
+
+{% endblock %}

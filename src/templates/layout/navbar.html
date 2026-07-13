@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success py-3 shadow-sm">
+  <div class="container-fluid">
+    
+    <div class="d-flex align-items-center justify-content-between w-100 flex-wrap gap-3">
+      
+      <a class="navbar-brand d-inline-flex align-items-center m-0 text-decoration-none" href="{{ url_for('main.index') }}" 
+         style="height: 38px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <span class="fs-4 me-2" style="line-height: 1;">📖</span>
+        <span class="fs-4" style="font-weight: 700 !important; letter-spacing: 0.5px; color: #b4abad !important;">
+          Bookmarket
+        </span>
+      </a>
+
+      <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1" style="max-width: 500px; min-width: 280px;">
+        
+        <form action="{{ url_for('boo.book_by_category') }}" method="GET" id="navSearchForm" class="w-100">
+          <select name="category" onchange="document.getElementById('navSearchForm').submit()" class="form-select rounded-pill text-center px-3" style="height: 36px; font-size: 14px; cursor: pointer; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+            <option value="all" {% if selected_cat == 'all' or not selected_cat %}selected{% endif %}>🔎 ყველა წიგნი</option>
+            <option value="buy" {% if selected_cat == 'buy' %}selected{% endif %}>შეძენა</option>
+            <option value="sell" {% if selected_cat == 'sell' %}selected{% endif %}>გაყიდვა</option>
+            <option value="gifting" {% if selected_cat == 'gifting' %}selected{% endif %}>ჩუქება</option>
+            <option value="giveaway" {% if selected_cat == 'giveaway' %}selected{% endif %}>გაჩუქება</option>
+            <option value="exchange" {% if selected_cat == 'exchange' %}selected{% endif %}>გაცვლა</option>
+            <option value="donation" {% if selected_cat == 'donation' %}selected{% endif %}>ქველმოქმედება</option>
+            <option value="completed" {% if selected_cat == 'completed' %}selected{% endif %}>აღარ არის ხელმისაწვდომი</option>
+          </select>
+        </form>
+       
+
+
+        <div class="d-flex align-items-center justify-content-center mt-2 gap-2 w-100">
+          {% if current_user.is_authenticated %}
+            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger btn-sm px-3 rounded-pill d-inline-flex align-items-center justify-content-center" style="height: 30px; font-size: 13px;">
+               🚪 გასვლა
+            </a>
+          {% else %}
+            <a href="{{ url_for('auth.register') }}" class="btn btn-outline-light btn-sm px-3 rounded-pill d-inline-flex align-items-center justify-content-center" style="height: 30px; font-size: 13px;">
+               რეგისტრაცია
+            </a>
+            <a href="{{ url_for('auth.login') }}" class="btn btn-light btn-sm px-4 rounded-pill d-inline-flex align-items-center justify-content-center fw-medium" style="height: 30px; font-size: 13px; color: #198754;">
+               შესვლა
+            </a>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <a href="{{ url_for('boo.book_by_category') }}" class="nav-link px-2 white-space-nowrap">
+        <span class="fs-6" style="font-weight: 700 !important; letter-spacing: 0.5px; color: #b4abad !important;">
+          სრული კატალოგი
+        </span>
+      </a>
+
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('boo.create') }}" class="nav-link px-2 white-space-nowrap">
+          <span class="fs-6" style="font-weight: 700 !important; letter-spacing: 0.5px; color: #b4abad !important;">
+            წიგნის დამატება-ატვირთვა
+          </span>
+        </a>
+      {% endif %}
+    
+    </div>
+  </div>
+</nav>

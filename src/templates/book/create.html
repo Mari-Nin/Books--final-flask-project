@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block main %}
+
+<h3 class="">{% if book %} წიგნის  რედაქტირება {% else %} ახალი წიგნის დამატება {% endif %}</h3>
+<main class="m-4 p-4 shadow">
+  <form method="POST" action="" enctype="multipart/form-data">
+  
+    {{ form.hidden_tag() }}
+    
+    <div class="mb-3">
+      {{ form.location.label(class="form-label") }}
+      {{ form.location(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.title.label(class="form-label") }}
+      {{ form.title(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.quantity.label(class="form-label") }}
+      {{ form.quantity(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.status.label(class="form-label") }}
+      {{ form.status(class="form-select") }}
+    </div>
+     
+    <div class="mb-3">
+      {{ form.category.label(class="form-label") }}
+      {{ form.category(class="form-select") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.img.label(class="form-label") }}
+      {{ form.img(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+      {{ form.submit(class="btn btn-dark") }}
+    </div>
+
+  </form>
+</main>
+{% endblock %}

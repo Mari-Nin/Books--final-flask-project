@@ -1,0 +1,15 @@
+{% for book in books %}
+  <div class="card">
+      <h3>{{ book.title }}</h3>
+
+      {% if book.availability == "available" %}
+          <p>სტატუსი: ხელმისაწვდომი</p>
+      {% else %}
+          <p>სტატუსი: აღარ არის ხელმისაწვდომი</p>
+      {% endif %}
+
+      <a href="{{ url_for('boo.book', id=book.id) }}">
+          ნახვა
+      </a>
+  </div>
+{% endfor %}

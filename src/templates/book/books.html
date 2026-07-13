@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% from "macros.html" import render_book with context  %}
+{% block main %}
+
+<main class="pt-0 pb-4"> 
+
+{% if selected_cat=='buy' %}
+    <h1 class="fs-4 fw-bold mt-4 mb-3"> 📚  შესაძენი წიგნების კატალოგი :</h1>
+
+
+{% elif selected_cat=='sell' %}
+    <h1 class="fs-4 fw-bold mt-4 mb-3"> 📚  გასაყიდი წიგნების კატალოგი:</h1>
+
+
+{% elif selected_cat=='exchange' %}
+    <h1 class="fs-4 fw-bold mt-4 mb-3"> 📚  გასაცვლელი წიგნების კატალოგი:</h1>
+
+
+{% elif selected_cat=='gifting' %}
+    <h1 class="fs-4 fw-bold mt-4 mb-3"> 📚  გავაჩუქებ წიგნებს:</h1>
+
+
+{% elif selected_cat=='giveaway' %}
+    <h1 class="fs-4 fw-bold mt-4 mb-3"> 📚 ვიჩუქებ წიგნებს:</h1>
+
+
+{% elif selected_cat=='donation' %}
+    <h1 class="fs-4 fw-bold mt-4 mb-3"> 📚  წიგნები ქველმოქმედებისათვის:</h1>
+  
+    {% else %}
+      <h1 class="fs-3 fw-bold mt-4 mb-3">{{ title }}</h1>
+  {% endif %}
+
+{% if selected_cat and selected_cat != 'all' %}
+    <div class="mb-4">
+        <a href="/" class="btn btn-secondary btn-sm d-inline-flex align-items-center gap-2">
+            მთავარ გვერდზე დაბრუნება
+        </a>
+    </div>
+{% endif %}
+
+  <div class="container-fluid mb-5">
+    
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 gy-5 gx-3">
+      {% for book in books %}
+        <div class="col">
+          {{ render_book(book) }}
+        </div>
+      {% endfor %}
+
+
+    </div>
+    
+  </div>
+</main>
+
+{% endblock %}
