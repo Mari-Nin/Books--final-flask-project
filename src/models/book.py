@@ -17,8 +17,4 @@ class Book(BaseModel):
     exchange_with = db.Column(db.String(255), nullable=True)
     
 
-print("BOOK.PY LOADED")
-print("action_time" in Book.__dict__)
-print("created_at" in Book.__dict__)
-
 
